@@ -7,6 +7,10 @@ on:
 
 env:
   PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+  GKE_CLUSTER: ${{ secrets.GKE_CLUSTER }}
+  GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
+  GCP_BUCKET_NAME: ${{ secrets.GCP_BUCKET_NAME }}
+  GKE_ZONE: ${{ secrets.GKE_ZONE }}
   IMAGE_NAME: gcr.io/${{ secrets.GCP_PROJECT_ID }}/td-exam2025-alumni
   
 jobs:
