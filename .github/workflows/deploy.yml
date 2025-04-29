@@ -36,6 +36,7 @@ jobs:
         docker build -t $IMAGE_NAME:latest .
         docker push $IMAGE_NAME:$GITHUB_SHA
         docker push $IMAGE_NAME:latest
+        
     - name: Replace bucket name in manifest
       run: |
         sed "s/REPLACE_BUCKET_NAME/${{ secrets.GCP_BUCKET_NAME }}/g" k8s/deployment.yaml > k8s/deployment.generated.yaml
