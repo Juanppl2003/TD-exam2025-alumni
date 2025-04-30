@@ -48,6 +48,7 @@ jobs:
         
     - name: Deploy to App Engine
       run: |
-
+        gcloud auth activate-service-account --key-file=${{ secrets.GCP_SA_KEY }}
+        gcloud config set project "$PROJECT_ID"
         sed "s/REPLACE_BUCKET_NAME/${{ secrets.GCP_BUCKET_NAME }}/g" app.yaml > app.generated.yaml
         gcloud app deploy app.generated.yaml --quiet
