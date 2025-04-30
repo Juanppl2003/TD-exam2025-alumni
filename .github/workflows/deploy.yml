@@ -48,7 +48,6 @@ jobs:
         
     - name: Deploy to App Engine
       run: |
-        gcloud app create --project="$PROJECT_ID" --region="us-central"
         sed "s/REPLACE_BUCKET_NAME/${{ secrets.GCP_BUCKET_NAME }}/g" app.yaml > app.generated.yaml
         gcloud app deploy app.generated.yaml --quiet
   
